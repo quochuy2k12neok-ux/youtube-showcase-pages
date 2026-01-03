@@ -3,196 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My YouTube Showroom</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <style>
-        :root {
-            --bg-color: #0f0f0f;
-            --card-bg: #1e1e1e;
-            --text-main: #ffffff;
-            --text-sub: #aaaaaa;
-            --yt-red: #ff0000;
-        }
-
-        body {
-            background-color: var(--bg-color);
-            color: var(--text-main);
-            font-family: "Roboto", Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-        }
-
-        /* Header */
-        header {
-            background-color: var(--bg-color);
-            height: 56px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 16px;
-            position: fixed;
-            top: 0;
-            width: 100%;
-            z-index: 100;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            font-size: 20px;
-            font-weight: bold;
-            letter-spacing: -1px;
-        }
-
-        .logo i {
-            color: var(--yt-red);
-            font-size: 28px;
-            margin-right: 4px;
-        }
-
-        /* Main Content */
-        .main-container {
-            display: flex;
-            padding-top: 56px;
-        }
-
-        /* Sidebar - Chỉ hiện trên màn hình lớn */
-        .sidebar {
-            width: 240px;
-            padding: 12px;
-            height: calc(100vh - 56px);
-            position: sticky;
-            top: 56px;
-        }
-
-        @media (max-width: 768px) {
-            .sidebar { display: none; }
-        }
-
-        .nav-item {
-            padding: 10px 12px;
-            border-radius: 10px;
-            cursor: pointer;
-            transition: 0.2s;
-        }
-
-        .nav-item:hover { background-color: #3f3f3f; }
-
-        /* Video Grid */
-        .video-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 16px;
-            padding: 24px;
-            width: 100%;
-        }
-
-        .video-card {
-            cursor: pointer;
-            transition: transform 0.2s;
-        }
-
-        .video-card:hover { transform: scale(1.02); }
-
-        .thumbnail {
-            width: 100%;
-            aspect-ratio: 16/9;
-            background: #333;
-            border-radius: 12px;
-            object-fit: cover;
-            margin-bottom: 12px;
-        }
-
-        .video-info {
-            display: flex;
-            gap: 12px;
-        }
-
-        .channel-icon {
-            width: 36px;
-            height: 36px;
-            background: #555;
-            border-radius: 50%;
-        }
-
-        .title {
-            font-size: 16px;
-            font-weight: 500;
-            line-height: 1.4;
-            display: -webkit-box;
-            -webkit-line-clamp: 2;
-            -webkit-box-orient: vertical;
-            overflow: hidden;
-        }
-
-        .meta {
-            color: var(--text-sub);
-            font-size: 14px;
-            margin-top: 4px;
-        }
-    </style>
+    <title>Pro Showcase | YouTube Edition</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-
-    <header>
-        <div class="logo">
-            <i class="fab fa-youtube"></i> YouTube Clone
+    <header class="navbar">
+        <div class="left-section">
+            <i class="fas fa-bars menu-icon"></i>
+            <div class="logo"><i class="fab fa-youtube"></i> <span>Showcase</span></div>
         </div>
-        <div style="background: #222; padding: 8px 20px; border-radius: 20px; width: 30%;">
-            <i class="fas fa-search" style="color: #888;"></i> Tìm kiếm
+        <div class="mid-section">
+            <div class="search-box">
+                <input type="text" placeholder="Tìm kiếm dự án...">
+                <button><i class="fas fa-search"></i></button>
+            </div>
+            <div class="mic-icon"><i class="fas fa-microphone"></i></div>
         </div>
-        <div class="user-icons">
-            <i class="fas fa-video" style="margin-right: 20px;"></i>
+        <div class="right-section">
+            <i class="fas fa-video"></i>
             <i class="fas fa-bell"></i>
+            <div class="user-avatar">G</div>
         </div>
     </header>
 
-    <div class="main-container">
-        <div class="sidebar">
-            <div class="nav-item"><i class="fas fa-home"></i> &nbsp; Trang chủ</div>
-            <div class="nav-item"><i class="fab fa-youtube-square"></i> &nbsp; Shorts</div>
-            <div class="nav-item"><i class="fas fa-layer-group"></i> &nbsp; Đăng ký</div>
-            <hr style="border: 0.1px solid #333; margin: 12px 0;">
-            <div class="nav-item">Thư viện</div>
-            <div class="nav-item">Video đã xem</div>
-        </div>
+    <div class="main-layout">
+        <aside class="sidebar">
+            <div class="nav-link active"><i class="fas fa-home"></i> <span>Trang chủ</span></div>
+            <div class="nav-link"><i class="fab fa-staylinked"></i> <span>Shorts</span></div>
+            <div class="nav-link"><i class="fas fa-layer-group"></i> <span>Đăng ký</span></div>
+            <hr>
+            <div class="nav-link"><i class="fas fa-history"></i> <span>Lịch sử</span></div>
+            <div class="nav-link"><i class="fas fa-clock"></i> <span>Xem sau</span></div>
+        </aside>
 
-        <div class="video-grid">
-            <div class="video-card">
-                <img src="https://picsum.photos/seed/1/400/225" class="thumbnail" alt="thumb">
-                <div class="video-info">
-                    <div class="channel-icon"></div>
-                    <div>
-                        <div class="title">Cách xây dựng hệ thống YouTube năm 2026</div>
-                        <div class="meta">Gemini Channel • 1.2M lượt xem<br>2 giờ trước</div>
-                    </div>
+        <main class="content">
+            <div id="category-bar" class="category-bar"></div>
+            <div id="video-grid" class="video-grid">
                 </div>
-            </div>
-
-            <div class="video-card">
-                <img src="https://picsum.photos/seed/2/400/225" class="thumbnail" alt="thumb">
-                <div class="video-info">
-                    <div class="channel-icon"></div>
-                    <div>
-                        <div class="title">Học lập trình Web cấp tốc cho người mới</div>
-                        <div class="meta">Dev Life • 500K lượt xem<br>1 ngày trước</div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="video-card">
-                <img src="https://picsum.photos/seed/3/400/225" class="thumbnail" alt="thumb">
-                <div class="video-info">
-                    <div class="channel-icon"></div>
-                    <div>
-                        <div class="title">Giao diện GitHub Pages cực đẹp</div>
-                        <div class="meta">AI Master • 80K lượt xem<br>5 ngày trước</div>
-                    </div>
-                </div>
-            </div>
-            
-            </div>
+        </main>
     </div>
 
+    <script type="module" src="script.js"></script>
 </body>
 </html>
